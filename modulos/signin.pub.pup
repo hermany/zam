@@ -1,0 +1,36 @@
+<?php
+header("Content-Type: text/html;charset=utf-8");
+require_once(_RUTA_NUCLEO."clases/class-constructor.php");
+$fmt = new CONSTRUCTOR;
+?>
+<script src="<?php echo _RUTA_WEB; ?>/js/signin.js" ></script>
+<div class="pub pub-signin">
+	<div class="pub-inner pub-inner-signin">
+		 <h3 class="title" lang="es">¡Bienvenido de vuelta!</h3>
+		  <form class="form-signin form" id="form-signin">
+		 	<div class="form-group">
+		 			<!-- <label for="inputEmail" lang="es">Email</label> -->
+		      <input type="email" class="form-control" id="inputEmailLogin" aria-describedby="emailHelp" placeholder="Tu email">
+		    </div>
+		    <div class="form-group">
+		      <!-- <label for="exampleInputPassword1" lang="es">Contraseña</label> -->
+		      <input type="password" class="form-control" id="inputPasswordLogin" lang="es" placeholder="Contraseña">
+		    </div>
+		    <button type="submit" class="btn btn-success btn-ingresar-cuenta-form">Ingresar a tu cuenta</button>
+		    <small   class="form-text text-muted text-nueva-cuenta" lang="es"> <a class='btn-olvido'>¿Olvidaste tu Contraseña? </a></small>
+		    <small   class="form-text text-muted text-nueva-cuenta" lang="es"> ¿No tienes una cuenta? <a class='btn-crear-cuenta-nueva'>Crear Cuenta</a></small>
+		  </form>
+	</div>
+	<div class="pub-inner pub-inner-forgot">
+		<h3 class="title" lang="es">¿Olvidaste tu Contraseña?</h3>
+		<form class="form-forgot form" id="form-forgot">
+		 	<div class="form-group">
+		 			<label for="inputEmail" lang="es">Enviaremos un email para cambiar tu Contraseña</label>
+		      <input type="email" class="form-control" id="inputEmailForgot" aria-describedby="emailHelp" placeholder="Tu email">
+		  </div>
+		  <button type="submit" class="btn btn-success btn-ingresar-cuenta-form">Resetear contraseña</button>
+		  <small   class="form-text text-muted text-nueva-cuenta" lang="es"> <a class='btn-cancelar-olvido'>Cancelar</a></small>
+		</form>
+	</div>
+	<div class="bg-signin"></div>
+</div>

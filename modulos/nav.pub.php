@@ -8,8 +8,10 @@ $fmt = new CONSTRUCTOR;
 <div class="nav container-fluid" >
 	<div class="container">
 	<a class="nav-brand" href="<?php echo _RUTA_WEB; ?>" ></a>
+	<a class="btn-ingresar-cuenta btn btn-full">Ingresar</a>
   <ul class="nav-inner">
     <? echo $fmt->nav->traer_cat_hijos_menu("0","0","1"); ?>
   </ul>
   </div>
 </div>
+

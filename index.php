@@ -7,7 +7,6 @@
    * Creator: @hermany
    * Devs.: Ariel Velazques, Ariel Ortuño, Cidar Veizaga, Cristian Grageda, Carolina Sanchez, Marcelo Garcia
 */
-
   header('Content-Type: text/html; charset=utf8');
 
   require_once("config.php");

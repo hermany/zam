@@ -55,6 +55,10 @@ li {
   width: 100%;
 }
 
+a{
+  cursor:pointer;
+}
+
 .container {
   width: 1024px;
   margin-right: auto;
@@ -101,12 +105,28 @@ li {
 
 .btn-info {
   background-color: @azul-a;
-  color: #fbfbfb;
+  color: @blanco;
+
+  &:hover{
+    background-color: @azul  !important;
+    color: @blanco  !important;
+  }
+}
+.btn-success {
+  background-color: @verde;
+  color: @blanco;
+   &:hover{
+    background-color: @verde-a  !important;
+    color: @blanco  !important;
+  } 
 }
 
 .btn-full {
   background: transparent !important;
-  border: 1px solid @gris;
+  border: 1px solid;
+  color:@blanco;
+  border-color: rgba(255,255,255,.56);
+  .border-transparente();
 
   &:hover {
     background-color: #adadad !important;
@@ -137,6 +157,10 @@ li {
     padding: 10px 8px 8px 7px;
     border-radius: 30px;
   }
+}
+
+.border-transparente(){
+  border-color:  rgba(255, 255, 255, 0.56);
 }
 
 .icon-facebook-squared {
