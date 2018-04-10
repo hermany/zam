@@ -103,6 +103,15 @@ a{
   }
 }
 
+.btn-primary {
+  background-color: @azul;
+  color: @blanco;
+
+  &:hover{
+    background-color: @azul-a  !important;
+    color: @blanco  !important;
+  }
+}
 .btn-info {
   background-color: @azul-a;
   color: @blanco;
@@ -166,11 +175,26 @@ a{
 .icon-facebook-squared {
   color: #3351A2;
 }
-
+ 
 .icon-whatsapp {
   color: #1DE663;
 }
 
+ 
 .icon-instagram {
   color: #EA0031;
 }
+
+.is-valid {
+  border-color: #1DE663;
+}
+
+.is-invalid {
+  border-color: #EA0031;
+}
+
+.disabled{
+  pointer-events: none;
+  opacity: .4 !important;
+}
+

@@ -3,15 +3,15 @@ header("Content-Type: text/html;charset=utf-8");
 require_once(_RUTA_NUCLEO."clases/class-constructor.php");
 $fmt = new CONSTRUCTOR;
 ?>
-<script src="<?php echo _RUTA_WEB; ?>/js/signup.js" ></script>
+<script src="<?php echo _RUTA_WEB; ?>js/signup.js" ></script>
 <div class="pub pub-signup">
 	<div class="pub-inner pub-inner-signup">
 		 <h3 class="title" lang="es">Crea una nueva cuenta</h3>
 		 <form class="form-signup form" id="form-signup">
 		 		<div class="form-group">
 		 			<!-- <label for="inputEmail" lang="es">Email</label> -->
-		      <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Tu email">
-		      <small   class="form-text text-muted" lang="es"> Tu E-mail sera tu id de ingreso al sistema.</small>
+		      <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Tu e-mail" lang="es">
+		      <small   class="form-text text-muted" lang="es"> Tu e-mail sera tu id de ingreso al sistema.</small>
 		    </div>
 		    <div class="form-group">
 		      <!-- <label for="inputNombre" lang="es">Nombre Competo</label> -->
@@ -40,10 +40,11 @@ $fmt = new CONSTRUCTOR;
           Estoy de acuerdo con los <a class='btn-terminos'>terminos y condiciones</a>
         </label>
         
-		     <button type="submit" class="btn btn-info btn-crear-cuenta-form">Crea tu cuenta en Zam</button>
+		     <button class="btn btn-primary btn-crear-cuenta-form disabled">Crea tu cuenta en Zam</button>
 
 		 </form>
 	</div>
-
+	
+<script src='https://www.google.com/recaptcha/api.js'></script> 
 	<div class="bg-signup"></div>
 </div>
