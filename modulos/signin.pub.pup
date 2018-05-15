@@ -6,9 +6,10 @@ $fmt = new CONSTRUCTOR;
 <script src="<?php echo _RUTA_WEB; ?>/js/signin.js" ></script>
 <div class="pub pub-signin">
 	<div class="pub-inner pub-inner-signin">
+		 <div class="brand"></div>
 		 <h3 class="title" lang="es">¡Bienvenido de vuelta!</h3>
-		  <form class="form-signin form" id="form-signin">
-		 	<div class="form-group">
+		 <form class="form-signin form" id="form-signin">
+		 <div class="form-group">
 		 			<!-- <label for="inputEmail" lang="es">Email</label> -->
 		      <input type="email" class="form-control" id="inputEmailLogin" aria-describedby="emailHelp" placeholder="Tu email">
 		    </div>

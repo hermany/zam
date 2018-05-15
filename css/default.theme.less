@@ -169,27 +169,38 @@
   }
 }
 
+.brand {
+  width: 70px;
+  height: 45px;
+  display: inline-block;
+  background: url(../images/logo.svg) no-repeat center center;
+  background-size: auto 80% !important;
+}
+
+.brand-o {
+  width: 70px;
+  height: 45px;
+  display: inline-block;
+  background: url(../images/logo-o.svg) no-repeat center center;
+  background-size: auto 80% !important;
+}
+
 .pub-signin {
-  position: fixed;
-  top: -10000px;
+  position: relative;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(4, 4, 4, 0.7);
+  background: rgb(167, 186, 212);
   z-index: 10;
   transition: all ease .2s;
 
-  &.on {
-    top: 0;
-    transition: all ease .2s;
-  }
-
-  .pub-inner-forgot{
+  .pub-inner-forgot {
     height: 260px !important;
     margin-top: -10000px !important;
     transition: all ease .2s;
 
-    &.on{
+    &.on {
       margin-top: -180px !important;
       transition: all ease .2s;
     }
@@ -198,11 +209,11 @@
   .pub-inner {
 
     width: 365px;
-    height: 330px;
+    height: 410px;
     background: white;
-    display:inline-block;
+    display: inline-block;
     margin-left: -182px;
-    margin-top: -180px;
+    margin-top: -205px;
     top: 50%;
     left: 50%;
     border-radius: 5px;
@@ -212,13 +223,20 @@
     z-index: 1;
     transition: all ease .2s;
 
-    &.off{
+    &.off {
       margin-top: -10000px;
       transition: all ease .2s;
     }
 
+    .brand {
+      margin-left: 110px;
+      margin-top: 20px;
+      width: 140px;
+      height: 80px;
+    }
+
     .title {
-      margin-top: 30px;
+      margin-top: 0px;
       display: inline-block;
       text-align: center;
       width: 100%;
@@ -314,11 +332,11 @@
       margin-left: 7px;
     }
 
-    .form-check-label{
-          font-size: 12px;
-    margin-top: 5px;
-    margin-bottom: 2px;
-    font-weight: normal;
+    .form-check-label {
+      font-size: 12px;
+      margin-top: 5px;
+      margin-bottom: 2px;
+      font-weight: normal;
     }
 
     .form-control {

@@ -50,9 +50,9 @@ if (_TIPO_CONEXION == "online"){
   define('_BASE_DE_DATOS','hermanyu_zam_1');
   
 
-  define('_RUTA_SERVER',str_replace("","",$_SERVER['DOCUMENT_ROOT'])."/server/");
+  define('_RUTA_SERVER',str_replace("zam","",$_SERVER['DOCUMENT_ROOT'])."");
   define('_RUTA_NUCLEO',_RUTA_SERVER."nucleo/");
-  define('_RUTA_HOST',_RUTA_SERVER."manjardeoro/");
+  define('_RUTA_HOST',_RUTA_SERVER."zam/");
 
   define('_RUTA_WEB',"http://zam.wappcom.com/");
   define("_RUTA_WEB_NUCLEO",'http://wappcom.com/nucleo/');

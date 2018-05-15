@@ -37,7 +37,7 @@
 					Sam sirve gestionar cotizaciones para una empresa en Internet. Damos soporte a los modelos de negocios más innovadores. 
 				</div>
 				<a class="btn btn-success">Conoce un poco más de nosotros</a>
-				<a class="btn btn-full btn-crear-cuenta">Crea tu cuenta</a>
+				<a class="btn btn-full btn-crear-cuenta" href="<?php echo _RUTA_WEB; ?>signup">Crea tu cuenta</a>
 			</div>
 			<div class="maquina">
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/NQ_W3OMUM9w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
