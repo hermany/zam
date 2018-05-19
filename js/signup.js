@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
 	$('body').on('focus','#form-signup #inputEmpresa', function(event) {
 		if (validar_signup()){
 			console.log("validado");

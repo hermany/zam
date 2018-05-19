@@ -6,6 +6,7 @@ $fmt = new CONSTRUCTOR;
 <script src="<?php echo _RUTA_WEB; ?>js/signup.js" ></script>
 <div class="pub pub-signup">
 	<div class="pub-inner pub-inner-signup">
+		 <div class="brand"></div>
 		 <h3 class="title" lang="es">Crea una nueva cuenta</h3>
 		 <form class="form-signup form" id="form-signup">
 		 		<div class="form-group">
@@ -33,7 +34,9 @@ $fmt = new CONSTRUCTOR;
 		      <input type="text" class="form-control" id="inputEmpresa"  lang="es" placeholder="Nombre de tu Empresa">
 		    </div>
 
-		    <div class="g-recaptcha" data-sitekey="6Ld1DVAUAAAAAK7aaXLuokNQtnrWo3H6iI2fmZdT"></div>
+		    <div class="captcha">
+		    	<div class="g-recaptcha" data-sitekey="6Ld1DVAUAAAAAK7aaXLuokNQtnrWo3H6iI2fmZdT"></div>
+		    </div>
 
 		     <label class="form-check-label">
           <input class="form-check-input" type="checkbox" value="" checked>

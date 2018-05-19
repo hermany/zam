@@ -191,7 +191,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgb(167, 186, 212);
+  background: #eceff1;
   z-index: 10;
   transition: all ease .2s;
 
@@ -213,13 +213,13 @@
     background: white;
     display: inline-block;
     margin-left: -182px;
-    margin-top: -205px;
+    margin-top: -265px;
     top: 50%;
     left: 50%;
     border-radius: 5px;
     position: absolute;
-    box-shadow: 0px 0px 12px 6px rgba(31, 28, 28, 0.29);
-    background: rgba(255, 255, 255, 0.83);
+    box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
+    background: rgba(255,255,255,.83);
     z-index: 1;
     transition: all ease .2s;
 
@@ -283,37 +283,39 @@
 }
 
 .pub-signup {
-  position: fixed;
-  top: -10000px;
+  position: relative;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(4, 4, 4, 0.7);
+  background: #eceff1;
   z-index: 10;
   transition: all ease .2s;
 
-  &.on {
-    top: 0;
-    transition: all ease .2s;
-  }
-
   .pub-inner {
-
     width: 365px;
-    height: 550px;
-    background: white;
+    height: 600px;
+    background: #fff;
     margin-left: -182px;
-    margin-top: -280px;
+    margin-top: -350px;
     top: 50%;
     left: 50%;
     border-radius: 5px;
     position: absolute;
-    box-shadow: 0px 0px 12px 6px rgba(31, 28, 28, 0.29);
-    background: rgba(255, 255, 255, 0.83);
+    box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
+    background: rgba(255,255,255,.83);
     z-index: 1;
+
+    .brand{
+          width: 110px;
+          height: 65px;
+          margin-left: 35%;
+          margin-top: 20px;
+    }
 
     .title {
       text-align: center;
+      margin-top: 0;
     }
   }
 
@@ -325,11 +327,24 @@
   }
 
   .form {
-    padding: 30px;
+    padding: 20px;
     padding-top: 10px;
 
     .form-text {
       margin-left: 7px;
+    }
+
+    .form-group{
+      margin-bottom: 10px;
+    }
+
+    .captcha{
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      div{
+        display: inline-block;
+      }
     }
 
     .form-check-label {
