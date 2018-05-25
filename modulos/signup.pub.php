@@ -35,7 +35,7 @@ $fmt = new CONSTRUCTOR;
 		    </div>
 
 		    <div class="captcha">
-		    	<div class="g-recaptcha" data-sitekey="6Ld1DVAUAAAAAK7aaXLuokNQtnrWo3H6iI2fmZdT"></div>
+		    	<div id="html_element"></div>
 		    </div>
 
 		     <label class="form-check-label">
@@ -43,11 +43,10 @@ $fmt = new CONSTRUCTOR;
           Estoy de acuerdo con los <a class='btn-terminos'>terminos y condiciones</a>
         </label>
         
-		     <button class="btn btn-primary btn-crear-cuenta-form disabled">Crea tu cuenta en Zam</button>
+		     <a class="btn btn-primary btn-crear-cuenta-form">Crea tu cuenta en Zam</a>
 
 		 </form>
 	</div>
-	
-<script src='https://www.google.com/recaptcha/api.js'></script> 
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer> </script>
 	<div class="bg-signup"></div>
 </div>

@@ -1,95 +1,99 @@
+var sitio = "http://zam.wappcom.com/";
+
+var onloadCallback = function() {
+  grecaptcha.render('html_element', {
+    'sitekey' : '6Ld1DVAUAAAAAK7aaXLuokNQtnrWo3H6iI2fmZdT'
+  });
+};
+  
 $(document).ready(function() {
+    $(".btn-crear-cuenta-form").click(function(event) {
+      var form_rg = new FormData();
 
-	$('body').on('focus','#form-signup #inputEmpresa', function(event) {
-		if (validar_signup()){
-			console.log("validado");
-			$(".btn-crear-cuenta-form").removeClass('disabled');
-		}else{
-			console.log("falta");
-		}
-	});
- 
+      form_rg.append("email",$("#inputEmail").val());
+      form_rg.append("nombre",$("#inputNombre").val());
+      form_rg.append("password",$("#inputPassword").val());
+      form_rg.append("confirmar_password",$("#inputConfirmarPassword").val());
+      form_rg.append("empresa",$("#inputEmpresa").val());
 
-	function invalido(id,texto){
-		$(id).addClass('is-invalid');
-		$(id).val('');
-		$(id).attr('placeholder',texto);
-		return false;
-	}
+      var ruta = sitio + "modulos/ajax-registro.php";
+      $.ajax({
+        url:ruta,
+        type:"post",
+        data:form_rg,
+        processData: false,
+        contentType: false,
+        success: function(msgx){
+          console.log(msgx);
+          var dat = msgx.split(":");
+          if (dat[0]=="error"){
+            switch(dat[1]) {
+              case "nombre":
+                $("#inputNombre").parent().addClass('error');
+                $("#inputNombre").attr("placeholder","Ingresa Nombre(s)");
+              break;
+              case "apellidos":
+                $("#inputApellidos").parent().addClass('error');
+                $("#inputApellidos").attr("placeholder","Ingresa Apellido(s)")
+              break;
+              case "nombre-apellidos":
+                $("#inputNombre").parent().addClass('error');
+                $("#inputNombre").attr("placeholder","Ingresa Nombre(s)");
+                $("#inputApellidos").parent().addClass('error');
+                $("#inputApellidos").attr("placeholder","Ingresa Apellido(s)")
+              break;
+              case "email":
+                $("#inputEmail").addClass('error');
+                $("#inputEmail").attr("placeholder","Ingresa un e-mail");
+              break;
+              case "email-0":
+                $("#inputEmail").val("");
+                $("#inputEmail").addClass('error');
+                $("#inputEmail").attr("placeholder","Email no valido, intenta con otro. ");
+              break;
+              case "email-1":
+                $("#inputEmail").val("");
+                $("#inputEmail").addClass('error');
+                $("#inputEmail").attr("placeholder","Ya existe este e-mail: "+dat[2]);
+                $(".mensajes-aux-inputEmail").html("<a href='<?php echo _RUTA_WEB; ?>ingresar'>Ingresar</a> o <a href='<?php echo _RUTA_WEB; ?>recordar-contrasena'>Recordar contraseña</a>");
+              break;
+              case "password":
+                $("#inputPassword").addClass('error');
+                $("#msg-pass-inputPassword").html("Agrega un password valido.");
+              break;              
+              case "password-min":
+                $("#inputPassword").addClass('error');
+                $("#msg-pass-inputPassword").html("Agrega un password de al menos 6 digitos.");
+              break;              
+              case "password-no":
+                $("#inputConfirmarPassword").addClass('error');
+                $("#msg-pass-inputConfirmarPassword").html("El password no coincide de con la confirmación.");
+              break;
+            }
 
-	$('body').on('focus', 'input', function( ) {
-		$(this).removeClass('is-invalid');
-		$(this).removeClass('is-valid');
-	});
-
-	$('body').on('keyup', '#inputEmpresa', function(event) {
-		var valor = $(this).val();
-		if (valor>3){
-			$(".btn-crear-cuenta-form").removeClass('disabled');
-		}
-	});
-
-	function validar_signup(){
-		var email = $("#form-signup #inputEmail").val();
-		var nombre = $("#form-signup #inputNombre").val();
-		var pw = $("#form-signup #inputPassword").val();
-		var cpw = $("#form-signup #inputConfirmarPassword").val();
-		var empresa = $("#form-signup #inputEmpresa").val();
-		// console.log("email:"+email);
-		// console.log(validarEmail(email));
-		 if(validar_email(email)){
-		 	$("#form-signup #inputEmail").addClass('is-valid');
-		 }else{
-		 	invalido('#form-signup #inputEmail','Ingresa un e-mail valido :D');
-		 }
-
-		 if (nombre!=""){
-		 	if (nombre.length > 6){
-		 		$("#form-signup #inputNombre").addClass('is-valid');
-		 	}else{
-		 		 invalido("#form-signup #inputNombre","Ingresa tu nombre completo :D");
-		 	}
-		 }else{
-		 	  invalido("#form-signup #inputNombre","Ingresa tu nombre completo :D");
-		 }
-
-		 if (pw!=""){
-		 	if (pw.length > 6){
-		 		$("#form-signup #inputPassword").addClass('is-valid');
-		 	}else{
-		 		invalido("#inputPassword", "Ingresa una contraseña valida :D");
-		 	}
-		 }else{
-		 	  invalido("#inputPassword", "Ingresa una contraseña valida :D");
-		 }
-
-		 if (cpw!=""){
-		 	if (cpw==pw){
-		 		$("#form-signup #inputConfirmarPassword").addClass('is-valid');
-		 	}else{
-		 		invalido("#form-signup #inputConfirmarPassword", "La contraseña no coincide :D");
-		 	}
-		 }else{
-		 	  invalido("#form-signup #inputConfirmarPassword", "La contraseña no coincide :D");
-		 }
-
-		 if (empresa!=""){
-		 	if (empresa>3){
-		 		$("#form-signup #inputEmpresa").addClass('is-valid');
-		 	}else{
-		 		invalido("#form-signup #inputEmpresa", "Agrega el nombre de tu Empresa");
-		 	}
-		 }else{
-		 	  invalido("#form-signup #inputEmpresa", "Agrega el nombre de tu Empresa");
-		 }
-
-		 return true;		
-
-	}
-
-	function validar_email( email ) 
-	{
-	    var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	    return regex.test(email) ? true : false;
-	}
-});
+            $("#inputNombre").keydown(function(event) {
+              $("#inputNombre").parent().removeClass('error');
+            });            
+            $("#inputApellidos").keydown(function(event) {
+              $("#inputApellidos").parent().removeClass('error');
+            });            
+            $("#inputApellidos").keydown(function(event) {
+              $("#inputApellidos").parent().removeClass('error');
+            });            
+            $("#inputEmail").keydown(function(event) {
+              $("#inputEmail").removeClass('error');
+              $(".mensajes-aux-inputEmail").html("");
+            });           
+            $("#inputPassword").keydown(function(event) {
+              $("#inputPassword").removeClass('error');
+              $("#msg-pass-inputPassword").html("");
+            });            
+            $("#inputConfirmarPassword").keydown(function(event) {
+              $("#inputConfirmarPassword").removeClass('error');
+              $("#msg-pass-inputConfirmarPassword").html("");
+            });
+          }
+        }
+      });
+    });
+  });
