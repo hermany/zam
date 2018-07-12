@@ -17,3 +17,4 @@ foreach ($rand as $val) {
 <link rel="stylesheet" href="<?php echo _RUTA_WEB; ?>css/default.theme.css?reload=<?php echo $vrand;?>" type="text/css" media="screen" />
 
 
+

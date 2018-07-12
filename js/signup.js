@@ -1,12 +1,87 @@
 var sitio = "http://zam.wappcom.com/";
+var validado = false;
+
+function onSubmit(token) {
+  // console.log("validado");
+  validado = true;
+}
 
 var onloadCallback = function() {
   grecaptcha.render('html_element', {
-    'sitekey' : '6Ld1DVAUAAAAAK7aaXLuokNQtnrWo3H6iI2fmZdT'
+    'sitekey' : '6Ld1DVAUAAAAAK7aaXLuokNQtnrWo3H6iI2fmZdT',
+    'callback' : onSubmit
   });
 };
   
 $(document).ready(function() {
+
+  $(".btn-validar").click(function(event) {
+
+    var form_rg = new FormData();
+    form_rg.append("codigo",$("#inputValidar").val());
+    form_rg.append("valor",$(this).attr("valor"));
+    var ruta = sitio + "modulos/ajax-validar.php";
+      $.ajax({
+        url:ruta,
+        type:"post",
+        data:form_rg,
+        processData: false,
+        contentType: false,
+        success: function(msgx){
+          
+          var dat = msgx.split(":");
+          console.log(msgx);
+          if (dat[0]=="error"){
+            if (dat[1]!=4){
+              $(".btn-validar").attr("valor",dat[1]);
+              $(".mensaje").html("Error en el código, intenta nuevamente");
+              setTimeout(function() {
+                $(".mensaje").html("");
+              },2000);
+            }else{
+              $(".mensaje").html("Muchos intentos, intenta en media hora.");
+              $(".contenido").addClass('disabled');
+            }
+          }
+          if(dat[0]=='saltar'){
+            location.href = sitio + "colaboradores";
+          }
+        }
+      });
+  });
+
+  $(".btn-enviar-codigo").click(function(event) {
+    var email = $(this).attr("email");
+    var form_re = new FormData();
+    form_re.append("email",email);
+    $(this).addClass('animated flash')
+    var ruta = sitio + "modulos/ajax-reenviar.php";
+      $.ajax({
+        url:ruta,
+        type:"post",
+        data:form_re,
+        processData: false,
+        contentType: false,
+        success: function(msgx){
+          console.log(msgx);
+          
+          if (msgx=="ok"){
+            $(".btn-enviar-codigo").html("Código enviado.");
+            $(".btn-enviar-codigo").removeClass('animated flash');
+            $(".btn-enviar-codigo").addClass('disabled');
+          }
+        }
+      });  
+  });
+
+  $( ".form-check-input" ).click(function(event) {
+    if( !$( this ).is( ":checked" )) {
+      $(".btn-crear-cuenta-form").addClass('disabled');
+    }else{
+      $(".btn-crear-cuenta-form").removeClass('disabled');
+    }
+  });
+
     $(".btn-crear-cuenta-form").click(function(event) {
       var form_rg = new FormData();
 
@@ -15,6 +90,7 @@ $(document).ready(function() {
       form_rg.append("password",$("#inputPassword").val());
       form_rg.append("confirmar_password",$("#inputConfirmarPassword").val());
       form_rg.append("empresa",$("#inputEmpresa").val());
+      form_rg.append("validacion",validado);
 
       var ruta = sitio + "modulos/ajax-registro.php";
       $.ajax({
@@ -26,21 +102,19 @@ $(document).ready(function() {
         success: function(msgx){
           console.log(msgx);
           var dat = msgx.split(":");
+          if (dat[0]=="registrar"){
+            // console.log("validado");
+            location.href = sitio+ "validar-cuenta/p=1&e=" + $("#inputEmail").val();
+          }
           if (dat[0]=="error"){
             switch(dat[1]) {
               case "nombre":
-                $("#inputNombre").parent().addClass('error');
+                $("#inputNombre").addClass('error');
                 $("#inputNombre").attr("placeholder","Ingresa Nombre(s)");
               break;
               case "apellidos":
-                $("#inputApellidos").parent().addClass('error');
-                $("#inputApellidos").attr("placeholder","Ingresa Apellido(s)")
-              break;
-              case "nombre-apellidos":
-                $("#inputNombre").parent().addClass('error');
-                $("#inputNombre").attr("placeholder","Ingresa Nombre(s)");
-                $("#inputApellidos").parent().addClass('error');
-                $("#inputApellidos").attr("placeholder","Ingresa Apellido(s)")
+                $("#inputNombre").addClass('error');
+                $(".mensajes-aux-nombre").html("El nombre no concide con uno valido.");
               break;
               case "email":
                 $("#inputEmail").addClass('error');
@@ -54,32 +128,47 @@ $(document).ready(function() {
               case "email-1":
                 $("#inputEmail").val("");
                 $("#inputEmail").addClass('error');
-                $("#inputEmail").attr("placeholder","Ya existe este e-mail: "+dat[2]);
-                $(".mensajes-aux-inputEmail").html("<a href='<?php echo _RUTA_WEB; ?>ingresar'>Ingresar</a> o <a href='<?php echo _RUTA_WEB; ?>recordar-contrasena'>Recordar contraseña</a>");
+                $("#inputEmail").attr("placeholder","Ya existe este e-mail.");
+                $(".mensajes-aux-inputEmail").html("<a href='"+sitio+"ingresar'>Ingresar</a> o <a href='"+sitio+"recordar-contrasena'>Recordar contraseña</a>");
               break;
               case "password":
                 $("#inputPassword").addClass('error');
-                $("#msg-pass-inputPassword").html("Agrega un password valido.");
+                $(".msg-pass").html("Agrega un password valido.");
               break;              
               case "password-min":
                 $("#inputPassword").addClass('error');
-                $("#msg-pass-inputPassword").html("Agrega un password de al menos 6 digitos.");
+                $(".msg-pass").html("Agrega un password de al menos 6 digitos.");
               break;              
               case "password-no":
                 $("#inputConfirmarPassword").addClass('error');
-                $("#msg-pass-inputConfirmarPassword").html("El password no coincide de con la confirmación.");
+                $(".msg-pass").html("El password no coincide de con la confirmación.");
+              break;
+              case "empresa":
+                $("#inputEmpresa").addClass('error');
+                $("#inputEmpresa").attr("placeholder","Ingresa un nombre de Empresa");
+              break;
+
+              case "empresa-min":
+                $("#inputEmpresa").addClass('error');
+                $(".msg-empresa").html("El nombre debe ser mayor a 2 caracteres.");
+              break;
+              case "captha":
+                $(".msg-captha").html("Hay un error de captha. Intenta otra vez.");
               break;
             }
 
+            
+
             $("#inputNombre").keydown(function(event) {
-              $("#inputNombre").parent().removeClass('error');
+              $("#inputNombre").removeClass('error');
+              $(".mensajes-aux-nombre").html("");
+            });
+
+            $("#inputEmpresa").keydown(function(event) {
+              $("#inputEmpresa").removeClass('error');
+              $(".msg-empresa").html("");
             });            
-            $("#inputApellidos").keydown(function(event) {
-              $("#inputApellidos").parent().removeClass('error');
-            });            
-            $("#inputApellidos").keydown(function(event) {
-              $("#inputApellidos").parent().removeClass('error');
-            });            
+          
             $("#inputEmail").keydown(function(event) {
               $("#inputEmail").removeClass('error');
               $(".mensajes-aux-inputEmail").html("");

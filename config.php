@@ -6,15 +6,15 @@ ini_set('display_errors','On');
 $mostrar_rutas="off";
 
  
-define('_TIPO_CONEXION','localhost');  //localhost - online
+define('_TIPO_CONEXION','online');  //localhost - online
 define('_TIPO_CONFIGURACION','htaccess'); //htaccess - webconfig
 define('_MULTIPLE_SITE', 'off'); // on - off
 
-define('_SMTP',''); //ej:mail.w2.com.bo
-define('_CORREO',''); //ej: pedidos@w2.com.bo
-define('_PASSWORD_MAIL',''); 
-define('_PUERTO',''); //ej: 26
-define('_VALIDACION',''); //ej: ssl
+define('_SMTP','mail.wappcom.com');
+define('_CORREO','mail@wappcom.com');
+define('_PASSWORD_MAIL','wapp123A!');
+define('_PUERTO',465);
+define('_SEGURIDAD_MAIL','ssl');
 
 if (_TIPO_CONEXION == "localhost"){
   

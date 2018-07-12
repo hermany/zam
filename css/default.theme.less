@@ -219,7 +219,7 @@
     border-radius: 5px;
     position: absolute;
     box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
-    background: rgba(255,255,255,.83);
+    background: rgba(255, 255, 255, .83);
     z-index: 1;
     transition: all ease .2s;
 
@@ -294,28 +294,100 @@
 
   .pub-inner {
     width: 365px;
-    height: 600px;
+    height: auto !important;
     background: #fff;
-    margin-left: -182px;
-    margin-top: -350px;
-    top: 50%;
+    margin-left: -182px; // margin-top: -350px;
+    top: 120px;
     left: 50%;
     border-radius: 5px;
     position: absolute;
     box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
-    background: rgba(255,255,255,.83);
+    background: rgba(255, 255, 255, .83);
     z-index: 1;
 
-    .brand{
-          width: 110px;
-          height: 65px;
-          margin-left: 35%;
-          margin-top: 20px;
+    .brand {
+      width: 110px;
+      height: 65px;
+      margin-left: 35%;
+      margin-top: 20px;
     }
 
     .title {
       text-align: center;
       margin-top: 0;
+    }
+
+    .pub-validacion-correo {
+      padding: 5px 20px 35px;
+      text-align: center;
+
+      .icono {
+        width: 100px;
+        height: 100px;
+        background: url(../images/send.svg) no-repeat;
+        display: inline-block;
+      }
+
+      .contenido {
+        margin-top: 15px;
+        input {
+          font-size: 21px;
+          width: 126px;
+          text-align: center;
+          padding: 5px;
+          border-radius: 3px;
+          border: 1px solid #ccc;
+        }
+
+        .btn {
+          font-size: 145%;
+          padding-left: 20px;
+          padding-right: 20px;
+          margin-top: -8px;
+        }
+      }
+      .texto {
+        margin: 15px 0px;
+        font-size: 15px;
+
+        .btn-enviar-codigo {
+          line-height: 12px;
+          color: @azul;
+        }
+      }
+      .mensaje{
+        color:@rojo-1;
+        text-align: center;
+            margin-top: 10px;
+      }
+    }
+
+    .mensaje-validar {
+      padding: 30px;
+      text-align: center;
+      float: left;
+      width: 100%;
+      display: none;
+
+      &.on{
+        display: inline-block;
+      }
+
+
+
+      .icono {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: url(../images/ok.svg);
+      }
+
+      span {
+        float: left;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+      }
     }
   }
 
@@ -331,18 +403,22 @@
     padding-top: 10px;
 
     .form-text {
-      margin-left: 7px;
+      font-size: 12px;
+      /* text-indent: 5px; */
+      text-indent: 7px;
+      margin-top: 5px;
+      display: block;
     }
 
-    .form-group{
+    .form-group {
       margin-bottom: 10px;
     }
 
-    .captcha{
+    .captcha {
       text-align: center;
       display: inline-block;
       width: 100%;
-      div{
+      div {
         display: inline-block;
       }
     }
