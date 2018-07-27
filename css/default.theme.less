@@ -2,445 +2,467 @@
 
 // nav
 .nav {
-  width: 100%; // height: 100vh; // border:1px solid red;
-  display: inline-block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0;
-  z-index: @z-index-nav;
-
-  .nav-brand {
-    width: 70px;
-    float: left;
-    background: url(../images/logo-o.svg) no-repeat center center;
-    background-size: auto 80% !important;
-    height: 45px;
-    margin-top: 15px;
-  }
-
-  .nav-inner {
-    position: relative;
+    width: 100%; // height: 100vh; // border:1px solid red;
     display: inline-block;
-    float: right;
-    margin-left: 30px;
-    margin-top: 28px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: @z-index-nav;
 
-
-    >li {
-      position: relative;
-      float: left;
-      list-style: none;
-      >a {
-        padding: 10px 20px;
-        font-size: 14px;
-        text-decoration: none;
-
-        i {
-          display: none;
-        }
-        span {
-          color: @blanco;
-          .font-regular();
-        }
-      }
+    .nav-brand {
+        width: 70px;
+        float: left;
+        background: url(../images/logo-o.svg) no-repeat center center;
+        background-size: auto 80% !important;
+        height: 45px;
+        margin-top: 15px;
     }
-  }
-  .btn-ingresar-cuenta {
-    margin-top: 20px;
-    float: right;
-  }
+
+    .nav-inner {
+        position: relative;
+        display: inline-block;
+        float: right;
+        margin-left: 30px;
+        margin-top: 28px;
+
+
+        >li {
+            position: relative;
+            float: left;
+            list-style: none;
+            >a {
+                padding: 10px 20px;
+                font-size: 14px;
+                text-decoration: none;
+
+                i {
+                    display: none;
+                }
+                span {
+                    color: @blanco;
+                    .font-regular();
+                }
+            }
+        }
+    }
+    .btn-ingresar-cuenta {
+        margin-top: 20px;
+        float: right;
+    }
+}
+
+.loading {
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    margin-top: 50px;
+    background: url(../images/loading.svg) no-repeat center top;
+    background-size: 45px;
+    span {
+        margin-top: 45px;
+        display: inline-block;
+    }
 }
 
 .pub-portada {
-  position: relative;
-  min-height: 600px;
-  z-index: 0;
-
-  .pub-inner {
-    width: 100%;
-    position: absolute;
-    z-index: 1;
-    margin-top: 120px;
-    top: 0px;
-    left: 0;
-
-    .inner {
-      width: 40%;
-      background: @azul-a;
-      padding: 3px;
-      border-radius: 5px;
-      float: left;
-      margin-top: 30px;
-
-      .title {
-        width: 60px;
-        color: @blanco;
-        background: @verde;
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 12px;
-        border-radius: 3px;
-        margin: 0;
-        float: left;
-      }
-      .titulo-nota {
-        width: 80%;
-        float: left;
-        margin-left: 10px;
-        a {
-          color: @blanco;
-        }
-      }
-    }
-
-    .box-texto {
-      position: relative;
-      .inner {
-        width: 40%;
-        margin-top: 10px;
-        background-color: transparent;
-
-        label {
-          color: @blanco;
-          h3 {
-            font-size: 190%;
-            line-height: 32px;
-          }
-        }
-        .mensaje {
-          font-size: 16px;
-          margin-bottom: 35px;
-          color: @blanco;
-        }
-      }
-    } //box-texto
-    .btn-crear-cuenta {
-      margin-left: 10px;
-    }
-
-    .maquina {
-      width: 700px;
-      height: 500px;
-      display: inline-block; // border: 1px solid;
-      position: absolute;
-      top: -65px;
-      right: -65px;
-      background: url(../images/maquina.png) no-repeat center top;
-      background-size: 700px;
-
-      iframe {
-        position: absolute;
-        top: 55px;
-        left: 92px;
-        width: 508px;
-        height: 290px;
-      }
-    }
-  }
-
-
-
-  #stripes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    min-height: 600px;
     z-index: 0;
-    top: -80px;
-    overflow: hidden;
-    transform: skewY(-5deg);
-    transform-origin: 0;
-    background: linear-gradient(150deg, #536DAC 15%, #8198C7 70%, #90BFB2 94%);
 
-    & span {
-      // border: 1px solid red;
-      position: absolute;
-      height: 200px;
+    .pub-inner {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        margin-top: 120px;
+        top: 0px;
+        left: 0;
+
+        .inner {
+            width: 40%;
+            background: @azul-a;
+            padding: 3px;
+            border-radius: 5px;
+            float: left;
+            margin-top: 30px;
+
+            .title {
+                width: 60px;
+                color: @blanco;
+                background: @verde;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 12px;
+                border-radius: 3px;
+                margin: 0;
+                float: left;
+            }
+            .titulo-nota {
+                width: 80%;
+                float: left;
+                margin-left: 10px;
+                a {
+                    color: @blanco;
+                }
+            }
+        }
+
+        .box-texto {
+            position: relative;
+            .inner {
+                width: 40%;
+                margin-top: 10px;
+                background-color: transparent;
+
+                label {
+                    color: @blanco;
+                    h3 {
+                        font-size: 190%;
+                        line-height: 32px;
+                    }
+                }
+                .mensaje {
+                    font-size: 16px;
+                    margin-bottom: 35px;
+                    color: @blanco;
+                }
+            }
+        } //box-texto
+        .btn-crear-cuenta {
+            margin-left: 10px;
+        }
+
+        .maquina {
+            width: 700px;
+            height: 500px;
+            display: inline-block; // border: 1px solid;
+            position: absolute;
+            top: -65px;
+            right: -65px;
+            background: url(../images/maquina.png) no-repeat center top;
+            background-size: 700px;
+
+            iframe {
+                position: absolute;
+                top: 55px;
+                left: 92px;
+                width: 508px;
+                height: 290px;
+            }
+        }
     }
 
 
-    & span:nth-child(0n+1) {
-      width: 120%;
-      left: 0;
-      top: 25px;
-      transform: rotate(3deg);
-      background: rgba(0, 0, 0, .08);
+
+    #stripes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        top: -80px;
+        overflow: hidden;
+        transform: skewY(-5deg);
+        transform-origin: 0;
+        background: linear-gradient(150deg, #536DAC 15%, #8198C7 70%, #90BFB2 94%);
+
+        & span {
+            // border: 1px solid red;
+            position: absolute;
+            height: 200px;
+        }
+
+
+        & span:nth-child(0n+1) {
+            width: 120%;
+            left: 0;
+            top: 25px;
+            transform: rotate(3deg);
+            background: rgba(0, 0, 0, .08);
+        }
     }
-  }
 }
 
 .brand {
-  width: 70px;
-  height: 45px;
-  display: inline-block;
-  background: url(../images/logo.svg) no-repeat center center;
-  background-size: auto 80% !important;
+    width: 70px;
+    height: 45px;
+    display: inline-block;
+    background: url(../images/logo.svg) no-repeat center center;
+    background-size: auto 80% !important;
 }
 
 .brand-o {
-  width: 70px;
-  height: 45px;
-  display: inline-block;
-  background: url(../images/logo-o.svg) no-repeat center center;
-  background-size: auto 80% !important;
+    width: 70px;
+    height: 45px;
+    display: inline-block;
+    background: url(../images/logo-o.svg) no-repeat center center;
+    background-size: auto 80% !important;
 }
 
 .pub-signin {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #eceff1;
-  z-index: 10;
-  transition: all ease .2s;
-
-  .pub-inner-forgot {
-    height: 260px !important;
-    margin-top: -10000px !important;
-    transition: all ease .2s;
-
-    &.on {
-      margin-top: -180px !important;
-      transition: all ease .2s;
-    }
-  }
-
-  .pub-inner {
-
-    width: 365px;
-    height: 410px;
-    background: white;
-    display: inline-block;
-    margin-left: -182px;
-    margin-top: -265px;
-    top: 50%;
-    left: 50%;
-    border-radius: 5px;
-    position: absolute;
-    box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
-    background: rgba(255, 255, 255, .83);
-    z-index: 1;
-    transition: all ease .2s;
-
-    &.off {
-      margin-top: -10000px;
-      transition: all ease .2s;
-    }
-
-    .brand {
-      margin-left: 110px;
-      margin-top: 20px;
-      width: 140px;
-      height: 80px;
-    }
-
-    .title {
-      margin-top: 0px;
-      display: inline-block;
-      text-align: center;
-      width: 100%;
-    }
-  }
-
-  .bg-signin {
+    position: relative;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 0;
-  }
+    height: 100vh;
+    background: #eceff1;
+    z-index: 10;
+    transition: all ease .2s;
 
-  .form {
-    padding: 30px;
-    padding-top: 10px;
+    .pub-inner-forgot {
+        height: 260px !important;
+        margin-top: -10000px !important;
+        transition: all ease .2s;
 
-    .form-text {
-      margin-left: 7px;
+        &.on {
+            margin-top: -180px !important;
+            transition: all ease .2s;
+        }
     }
 
-    .form-control {
-      height: 42px;
-      padding: 10px 12px;
-      font-size: 14px;
+    .pub-inner {
+
+        width: 365px;
+        height: 410px;
+        background: white;
+        display: inline-block;
+        margin-left: -182px;
+        margin-top: -265px;
+        top: 50%;
+        left: 50%;
+        border-radius: 5px;
+        position: absolute;
+        box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
+        background: rgba(255, 255, 255, .83);
+        z-index: 1;
+        transition: all ease .2s;
+
+        &.off {
+            margin-top: -10000px;
+            transition: all ease .2s;
+        }
+
+        .brand {
+            margin-left: 110px;
+            margin-top: 20px;
+            width: 140px;
+            height: 80px;
+        }
+
+        .title {
+            margin-top: 0px;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
     }
 
-    .btn-ingresar-cuenta-form {
-      width: 100%;
-      padding: 10px;
-      font-size: 130%;
-      margin-top: 10px;
-      font-weight: bold;
+    .bg-signin {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
     }
 
-    .text-nueva-cuenta {
-      font-size: 13px;
-      width: 100% !important;
-      text-align: center;
-      display: inline-block;
-      margin-top: 10px;
+    .form {
+        padding: 30px;
+        padding-top: 10px;
+
+        .form-text {
+            margin-left: 7px;
+        }
+
+        .form-control {
+            height: 42px;
+            padding: 10px 12px;
+            font-size: 14px;
+        }
+
+        .btn-ingresar-cuenta-form {
+            width: 100%;
+            padding: 10px;
+            font-size: 130%;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .text-nueva-cuenta {
+            font-size: 13px;
+            width: 100% !important;
+            text-align: center;
+            display: inline-block;
+            margin-top: 10px;
+        }
     }
-  }
 }
 
 .pub-signup {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #eceff1;
-  z-index: 10;
-  transition: all ease .2s;
-
-  .pub-inner {
-    width: 365px;
-    height: auto !important;
-    background: #fff;
-    margin-left: -182px; // margin-top: -350px;
-    top: 120px;
-    left: 50%;
-    border-radius: 5px;
-    position: absolute;
-    box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
-    background: rgba(255, 255, 255, .83);
-    z-index: 1;
-
-    .brand {
-      width: 110px;
-      height: 65px;
-      margin-left: 35%;
-      margin-top: 20px;
-    }
-
-    .title {
-      text-align: center;
-      margin-top: 0;
-    }
-
-    .pub-validacion-correo {
-      padding: 5px 20px 35px;
-      text-align: center;
-
-      .icono {
-        width: 100px;
-        height: 100px;
-        background: url(../images/send.svg) no-repeat;
-        display: inline-block;
-      }
-
-      .contenido {
-        margin-top: 15px;
-        input {
-          font-size: 21px;
-          width: 126px;
-          text-align: center;
-          padding: 5px;
-          border-radius: 3px;
-          border: 1px solid #ccc;
-        }
-
-        .btn {
-          font-size: 145%;
-          padding-left: 20px;
-          padding-right: 20px;
-          margin-top: -8px;
-        }
-      }
-      .texto {
-        margin: 15px 0px;
-        font-size: 15px;
-
-        .btn-enviar-codigo {
-          line-height: 12px;
-          color: @azul;
-        }
-      }
-      .mensaje{
-        color:@rojo-1;
-        text-align: center;
-            margin-top: 10px;
-      }
-    }
-
-    .mensaje-validar {
-      padding: 30px;
-      text-align: center;
-      float: left;
-      width: 100%;
-      display: none;
-
-      &.on{
-        display: inline-block;
-      }
-
-
-
-      .icono {
-        display: inline-block;
-        width: 100px;
-        height: 100px;
-        background: url(../images/ok.svg);
-      }
-
-      span {
-        float: left;
-        text-align: center;
-        width: 100%;
-        font-size: 18px;
-      }
-    }
-  }
-
-  .bg-signup {
+    position: relative;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 0;
-  }
+    height: 100vh;
+    background: #eceff1;
+    z-index: 10;
+    transition: all ease .2s;
 
-  .form {
-    padding: 20px;
-    padding-top: 10px;
+    .pub-inner {
+        width: 365px;
+        height: auto !important;
+        background: #fff;
+        margin-left: -182px; // margin-top: -350px;
+        top: 120px;
+        left: 50%;
+        border-radius: 5px;
+        position: absolute;
+        box-shadow: 0 0 7px 2px rgba(86, 118, 154, 0.25);
+        background: rgba(255, 255, 255, .83);
+        z-index: 1;
 
-    .form-text {
-      font-size: 12px;
-      /* text-indent: 5px; */
-      text-indent: 7px;
-      margin-top: 5px;
-      display: block;
+        .brand {
+            width: 110px;
+            height: 65px;
+            margin-left: 35%;
+            margin-top: 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .pub-validacion-correo {
+            padding: 5px 20px 35px;
+            text-align: center;
+
+            .icono {
+                width: 100px;
+                height: 100px;
+                background: url(../images/send.svg) no-repeat;
+                display: inline-block;
+            }
+
+            .contenido {
+                margin-top: 15px;
+                input {
+                    font-size: 21px;
+                    width: 126px;
+                    text-align: center;
+                    padding: 5px;
+                    border-radius: 3px;
+                    border: 1px solid #ccc;
+                }
+
+                .btn {
+                    font-size: 145%;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    margin-top: -8px;
+                }
+            }
+            .texto {
+                margin: 15px 0px;
+                font-size: 15px;
+
+                .btn-enviar-codigo {
+                    line-height: 12px;
+                    color: @azul;
+                }
+            }
+            .mensaje {
+                color: @rojo-1;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+
+        .mensaje-validar {
+            padding: 30px;
+            text-align: center;
+            float: left;
+            width: 100%;
+            display: none;
+
+            &.on {
+                display: inline-block;
+            }
+
+
+
+            .icono {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+                background: url(../images/ok.svg);
+            }
+
+            span {
+                float: left;
+                text-align: center;
+                width: 100%;
+                font-size: 18px;
+            }
+        }
     }
 
-    .form-group {
-      margin-bottom: 10px;
+    .bg-signup {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
     }
 
-    .captcha {
-      text-align: center;
-      display: inline-block;
-      width: 100%;
-      div {
-        display: inline-block;
-      }
-    }
+    .form {
+        padding: 20px;
+        padding-top: 10px;
 
-    .form-check-label {
-      font-size: 12px;
-      margin-top: 5px;
-      margin-bottom: 2px;
-      font-weight: normal;
-    }
+        .form-text {
+            font-size: 12px;
+            /* text-indent: 5px; */
+            text-indent: 7px;
+            margin-top: 5px;
+            display: block;
+        }
 
-    .form-control {
-      height: 42px;
-      padding: 10px 12px;
-      font-size: 14px;
-    }
+        .form-group {
+            margin-bottom: 10px;
+        }
 
-    .btn-crear-cuenta-form {
-      width: 100%;
-      padding: 10px;
-      font-size: 130%;
-      margin-top: 10px;
+        .captcha {
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            div {
+                display: inline-block;
+            }
+        }
+
+        .form-check-label {
+            font-size: 12px;
+            margin-top: 5px;
+            margin-bottom: 2px;
+            font-weight: normal;
+        }
+
+        .form-control {
+            height: 42px;
+            padding: 10px 12px;
+            font-size: 14px;
+        }
+
+        .btn-crear-cuenta-form {
+            width: 100%;
+            padding: 10px;
+            font-size: 130%;
+            margin-top: 10px;
+        }
     }
-  }
+}
+
+.pub-inner-c {
+    width: 600px !important;
+    margin-left: -300px !important;
+
+    .brand{
+      margin-left: 40% !important;
+    }
 }

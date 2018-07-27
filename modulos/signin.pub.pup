@@ -3,7 +3,7 @@ header("Content-Type: text/html;charset=utf-8");
 require_once(_RUTA_NUCLEO."clases/class-constructor.php");
 $fmt = new CONSTRUCTOR;
 ?>
-<script src="<?php echo _RUTA_WEB; ?>/js/signin.js" ></script>
+<!-- <script src="<?php echo _RUTA_WEB; ?>/js/signin.js" ></script> -->
 <div class="pub pub-signin">
 	<div class="pub-inner pub-inner-signin">
 		 <div class="brand"></div>
@@ -17,7 +17,7 @@ $fmt = new CONSTRUCTOR;
 		      <!-- <label for="exampleInputPassword1" lang="es">Contraseña</label> -->
 		      <input type="password" class="form-control" id="inputPasswordLogin" lang="es" placeholder="Contraseña">
 		    </div>
-		    <button type="submit" class="btn btn-success btn-ingresar-cuenta-form">Ingresar a tu cuenta</button>
+		    <a class="btn btn-success btn-ingresar-cuenta-form">Ingresar a tu cuenta</a>
 		    <small   class="form-text text-muted text-nueva-cuenta" lang="es"> <a class='btn-olvido'>¿Olvidaste tu Contraseña? </a></small>
 		    <small   class="form-text text-muted text-nueva-cuenta" lang="es"> ¿No tienes una cuenta? <a class='btn-crear-cuenta-nueva'>Crear Cuenta</a></small>
 		  </form>
@@ -29,9 +29,60 @@ $fmt = new CONSTRUCTOR;
 		 			<label for="inputEmail" lang="es">Enviaremos un email para cambiar tu Contraseña</label>
 		      <input type="email" class="form-control" id="inputEmailForgot" aria-describedby="emailHelp" placeholder="Tu email">
 		  </div>
-		  <button type="submit" class="btn btn-success btn-ingresar-cuenta-form">Resetear contraseña</button>
+		  <a class="btn btn-success btn-ingresar-cuenta-form">Resetear contraseña</a>
 		  <small   class="form-text text-muted text-nueva-cuenta" lang="es"> <a class='btn-cancelar-olvido'>Cancelar</a></small>
 		</form>
 	</div>
 	<div class="bg-signin"></div>
+	<script src="<?php echo _RUTA_WEB_NUCLEO; ?>js/core.js" ></script>  
 </div>
+
+<script type="text/javascript">
+ 
+		$(document).ready(function() {
+	var sitio = "<?php echo _RUTA_WEB; ?>";
+	
+		$('.btn-ingresar-cuenta-form').click(function(event) {
+			// alert("entre a acción");
+		var ie = $("#inputEmailLogin").val( );
+		var ip = $("#inputPasswordLogin").val( );
+
+		var form_rg = new FormData();
+    form_rg.append("inputEmail",ie);
+    form_rg.append("password",ip);
+    ruta = sitio + "modulos/ajax-login.php";
+		$.ajax({
+			url: ruta,
+			type:"post",
+			data:form_rg,
+			processData: false,
+      contentType: false,
+			success: function(msg){
+        console.log(msg);
+
+				if ((msg!="false")&&(msg!="sin-rol")&&(msg!="rol-desactivado")) {
+        	$("#mensaje-login").html("<?php echo $fmt->mensaje->login_ok(); ?>");
+          redireccionar_tiempo(msg,800); // core.js
+        }
+
+        if(msg=="sin-rol"){
+          $("#mensaje-login").html("<?php echo $fmt->errores->error_rol(); ?>");
+          toggleIdCerrar("error_login", 8000);  // core.js
+        }
+
+        if(msg=="rol-desactivado"){
+          $("#mensaje-login").html("<?php echo $fmt->errores->error_rol_desactivado(); ?>");
+          toggleIdCerrar("error_login", 6000);  // core.js
+        }
+
+        if (msg=="false") {
+          $("#mensaje-login").html("<?php echo $fmt->errores->error_login(); ?>");
+          toggleIdCerrar("error_login", 6000); // core.js
+        }
+			// $("#mensaje-login").html(msg);
+		  }
+		});
+	});
+});
+ 
+</script>
