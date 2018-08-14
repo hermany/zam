@@ -459,10 +459,119 @@
 }
 
 .pub-inner-c {
-    width: 600px !important;
-    margin-left: -300px !important;
+    width: 750px !important;
+    margin-left: -375px !important;
+    padding-bottom: 25px;
 
-    .brand{
-      margin-left: 40% !important;
+    .brand {
+        margin-left: 42% !important;
+    }
+
+    .seccion {
+        padding: 0px 25px;
+
+        .btn-agregar-colaboradores {
+            margin-top: 15px;
+        }
+
+        .agregar {
+
+
+            .item {
+                display: flex;
+                width: 100%;
+                /* margin-bottom: 10px; */
+                margin-top: 10px;
+
+                .form-control {
+                    width: 36%;
+                    margin-right: 5px;
+                }
+
+                .form-group {
+                    width: 22%;
+                    margin-bottom: 0px;
+
+                    .form-control {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .btn-eliminar-co, .btn-eliminar-equipo {
+
+            i {
+                border-radius: 20px;
+                color: @gris;
+                border: 1px solid @gris-1;
+                font-size: 10px;
+                /* padding: 3px 2px 4px 2px; */
+                /* margin: 3px 3px; */
+                margin-top: 6px;
+                margin-left: 6px;
+                width: 22px;
+                height: 22px;
+                text-align: center;
+                line-height: 16px;
+                padding-right: 0px;
+                padding-top: 1px;
+                float: left;
+
+                &:hover {
+                    border-color: @rojo;
+                    color: @rojo-1;
+                }
+            }
+        }
+
+        .dash-equipos {
+            float: left;
+            width: 100%;
+            margin-bottom: 20px;
+
+            .agregar-equipo {
+                margin-left: 0;
+                padding-left: 0px;
+
+                .item {
+                    margin-bottom: 10px;
+
+                    .btn-color {
+                        position: absolute;
+                        width: 32px;
+                        height: 32px;
+                        border: 1px solid #8197c7;
+                        top: 1px;
+                        right: -23px;
+                        background-color: #8197c7;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        opacity: 1;
+
+                        &:hover {
+                            opacity: .7;
+                        }
+                    }
+                }
+            }
+
+            .btn-agregar-equipo {
+                float: left;
+                clear: left;
+                margin-top: 15px;
+            }
+        }
+
+        .box-botones {
+            margin-top: 20px;
+            width: 100%;
+            text-align: right;
+
+            .btn {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
     }
 }
