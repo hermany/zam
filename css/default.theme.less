@@ -460,6 +460,7 @@
 
 .pub-inner-c {
     width: 750px !important;
+    min-height: 400px;
     margin-left: -375px !important;
     padding-bottom: 25px;
 
@@ -468,11 +469,80 @@
     }
 
     .seccion {
-        padding: 0px 25px;
+        padding: 0px 0px;
 
-        .btn-agregar-colaboradores {
-            margin-top: 15px;
+
+        .tabs-group {
+            border-bottom: 1px solid #d8d8d8;
+            position: relative;
+            width: 100%;
+            float: left;
+
+            .tabs {
+                float: left;
+
+                .tab {
+                    border-bottom: 4px solid;
+                    padding: 5px 10px 7px 15px;
+                    font-size: 15px;
+                    position: relative;
+
+                    .editar {
+                        font-size: 16px;
+                        margin-left: 5px;
+                    }
+
+                    .box-tab-color {
+                        position: absolute;
+                        z-index: 5;
+                        width: 132px;
+                        padding-left: 3px;
+                        height: 28px;
+                        border-radius: 3px;
+                        top: 5px;
+                        left: 72px;
+                        background: #ffffff;
+                        border: 1px solid #ccc;
+                        display: none;
+
+                        .btn-color-select {
+                            width: 21px;
+                            height: 18px;
+                            border-radius: 3px;
+                            display: inline-block;
+                            margin: 4px 2px;
+                        }
+                    }
+
+                    .btn-color {
+                        position: absolute;
+                        width: 18px;
+                        height: 18px;
+                        top: 10px;
+                        left: 77px;
+                        border-radius: 3px;
+                        display: none;
+                        z-index: 3;
+
+                        &.on {
+                            display: inline-block;
+                        }
+                    }
+
+                    .input-equipo {
+                        width: 132px;
+                        border-radius: 4px;
+                        border: 1px solid @gris-1;
+                        padding: 3px 5px 2px 5px;
+                        margin-left: 5px;
+                        padding-left: 28px;
+                        z-index: 0;
+                    }
+                }
+            }
         }
+
+
 
         .agregar {
 
@@ -488,6 +558,10 @@
                     margin-right: 5px;
                 }
 
+                .form-nombre {
+                    width: 39.7%;
+                }
+
                 .form-group {
                     width: 22%;
                     margin-bottom: 0px;
@@ -499,7 +573,8 @@
             }
         }
 
-        .btn-eliminar-co, .btn-eliminar-equipo {
+        .btn-eliminar-co,
+        .btn-eliminar-equipo {
 
             i {
                 border-radius: 20px;
@@ -524,6 +599,8 @@
                 }
             }
         }
+
+
 
         .dash-equipos {
             float: left;
@@ -571,6 +648,28 @@
             .btn {
                 padding-left: 20px;
                 padding-right: 20px;
+            }
+        }
+    }
+
+    .seccion-colaboradores {
+        float: left;
+        width: 100%;
+        padding: 10px 25px 25px 25px;
+
+        .box-agregar-colb {
+            float: right;
+            margin-top: 12px;
+
+            span {
+                float: left;
+                margin-top: 9px;
+                color:@gris-c;
+            }
+
+            .btn-agregar-colaboradores {
+                float: right;
+                margin-right: 5px;
             }
         }
     }
