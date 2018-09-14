@@ -1,10 +1,32 @@
 $(document).ready(function() { 
 
-	$('.loading').hide();
+  var url_tab = sitio + "modulos/views/agregar-tab.htm";
+  var cont_tab=1;
+  var color_1="#536DAC";
 
+  $('.loading').hide();
+
+  // $.get(url_tab, function(respuesta) {
+  //   var s = respuesta.replace(/\#id#/g, cont_tab);
+  //   var s = s.replace(/\#color#/g, color_1);
+  //   console.log(s);
+  //   // $(".tabs").append(str);
+  // });
+
+  var tab_1 = return_view(url_tab);
+  var str = tab_1.replace(/\#id#/g, cont_tab);
+  var str = str.replace(/\#color#/g, color_1);
+  $(".tabs").append(str);
+  $(".btn-eliminar-equipo[item=1]").remove();
+  //console.log(s);
+
+  
 	$('.btn-agregar-equipo').click(function(event) {
-		var item = $(this).attr('item');
-		
+		cont_tab++;
+    var str = tab_1.replace(/\#id#/g, cont_tab);
+    var str = str.replace(/\#color#/g, color_1);
+		// console.log(item);
+    $(".tabs").append(str);
 	});
 
 
@@ -27,7 +49,6 @@ $(document).ready(function() { 
     	}
   });
 
-  
 
   $(".btn-color").click(function(event) {
   	var item = $(this).attr('item');
@@ -46,7 +67,7 @@ $(document).ready(function() { 
 
   });
 
-	$(document).bind('keydown',function(e){
+	$('body').on('keydown','.input-equipo', function(e) {
 		if ( e.which == 27 ) {
     	$('.nombre-equipo').show();
     	$('.tab .input-equipo').attr('type', 'hidden');
@@ -54,9 +75,9 @@ $(document).ready(function() { 
   	}
 	});
 
-	$('.btn-editar-equipo').click(function(event) {
+	$('body').on('click','.btn-editar-equipo', function(event) {
 		var item = $(this).attr('item');
-		$('.nombre-equipo').hide();
+		$('.nombre-equipo[item='+item+']').hide();
 		$('.tab[item='+item+'] .input-equipo').attr('type', 'text');
 		$('.tab[item='+item+'] .btn-color').show();
 		$(this).hide();

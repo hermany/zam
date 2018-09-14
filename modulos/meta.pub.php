@@ -18,6 +18,7 @@ foreach ($rand as $val) {
 <link rel="stylesheet" href="<?php echo _RUTA_WEB; ?>css/default.theme.css?reload=<?php echo $vrand;?>" type="text/css" media="screen" />
 <script> var sitio = "<?php echo _RUTA_WEB; ?>"</script>
 <script src="<?php echo _RUTA_WEB; ?>js/nav.js" ></script>  
+<script src="<?php echo _RUTA_WEB; ?>js/fn-get.js" ></script>  
 <script src="<?php echo _RUTA_WEB; ?>js/alert.js" ></script>  
 
 

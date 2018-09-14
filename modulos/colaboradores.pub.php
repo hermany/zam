@@ -39,7 +39,7 @@ $cnt_nombre = $empresa["emp_nombre"];
 		<div class="seccion">
 			<div class="tabs-group">
 				<div class="tabs">
-					<div class="tab active tab-item" item='1' style="border-color:#536DAC">
+					<!-- <div class="tab active tab-item" item='1' style="border-color:#536DAC">
 						<span>Equipo</span>
 						<span class="nombre-equipo tab-item" item='1'>1</span>
 						<div class="box-tab-color tab-item" item='1' ></div>
@@ -47,37 +47,38 @@ $cnt_nombre = $empresa["emp_nombre"];
 						<input type="hidden" item="1" class="tab-item inputColor" value="#536DAC"> 
 						<input type="hidden" item="1" class="tab-item input-equipo" value="1"> 
 						<a class="editar btn-editar-equipo tab-item " item="1"><i class="icn icn-pencil"></i></a>
-					</div>
-
+					</div> -->
 				</div>
 				<a class="btn-agregar-equipo btn-info-o btn-rounded" item='1'><i class='icn icn-plus'></i></a>
 			</div>
 		</div>
 		<div class="seccion seccion-colaboradores">
-			<label for=""><h3>Colaboradores: <?php echo $id_usu; ?></h3></label>
-			<div class="box-agregar-colb">
-				<span>Agregar Colaborador</span>
-				<a class='btn btn-rounded btn-success btn-success-o btn-agregar-colaboradores '>
-					<i class="icn icn-plus"></i>
-				</a>
-			</div>
-			<div class="dashboard">				
-				<div class="agregar">
-						<div class="item-1 item">
-							<input type="text" class='form-nombre form-control' id='inputNombre-1' placeholder="Nombre completo del colaborador">
-							<input type="text" class='form-control' id='inputEmail-1' placeholder="E-mail del colaborador">
-							<?php 
-								$select = $fmt->form->select_nodo(array('label' => '',
-																			'id' => 'inputRol-1',
-																			'from'=>'rol',
-																			'prefijo'=>'rol_',
-																			'nivel_hijos' => '1',
-																			'label_item_inicial'=>'Seleccionar Rol',
-																			'id_inicio'=>'3'));
-								echo $select;
-							?>
-						</div>
-						<input type="hidden" value="1" id='inputCantidadColadoradores'>
+			<div class="content-tab" id='content-tab-1'>
+				<label for=""><h3>Colaboradores: <?php echo $id_usu; ?></h3></label>
+				<div class="box-agregar-colb">
+					<span>Agregar Colaborador</span>
+					<a class='btn btn-rounded btn-success btn-success-o btn-agregar-colaboradores '>
+						<i class="icn icn-plus"></i>
+					</a>
+				</div>
+				<div class="dashboard">				
+					<div class="agregar">
+							<div class="item-1 item">
+								<input type="text" class='form-nombre form-control' id='inputNombre-1' placeholder="Nombre completo del colaborador">
+								<input type="text" class='form-control' id='inputEmail-1' placeholder="E-mail del colaborador">
+								<?php 
+									$select = $fmt->form->select_nodo(array('label' => '',
+																				'id' => 'inputRol-1',
+																				'from'=>'rol',
+																				'prefijo'=>'rol_',
+																				'nivel_hijos' => '1',
+																				'label_item_inicial'=>'Seleccionar Rol',
+																				'id_inicio'=>'3'));
+									echo $select;
+								?>
+							</div>
+							<input type="hidden" value="1" id='inputCantidadColadoradores'>
+					</div>
 				</div>
 			</div>
 		</div>
